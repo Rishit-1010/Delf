@@ -397,13 +397,9 @@
   // ---------- Data ----------
   const GALLERY_IMAGES = [
     { src: "https://delfengineersindia.com/wp-content/uploads/2019/07/75.jpg", alt: "International Convention Centre in Bihar designed by DELF Engineers" },
-    { src: "https://images.pexels.com/photos/36695445/pexels-photo-36695445.jpeg", alt: "Modern construction site with steel beams and cranes" },
-    { src: "https://images.pexels.com/photos/8960939/pexels-photo-8960939.jpeg", alt: "Bridge under construction with steel structures" },
-    { src: "https://images.pexels.com/photos/35567574/pexels-photo-35567574.jpeg", alt: "Construction crane silhouetted against a colorful sunset sky" },
-    { src: "https://images.pexels.com/photos/13057675/pexels-photo-13057675.jpeg", alt: "Tower cranes and building under construction against a blue sky" },
-    { src: "https://images.pexels.com/photos/17638341/pexels-photo-17638341.jpeg", alt: "Colorful cranes beside a modern building under a blue sky" },
-    { src: "https://images.pexels.com/photos/29527532/pexels-photo-29527532.jpeg", alt: "Blue metal bridge beam under construction" },
-    { src: "https://images.pexels.com/photos/31197870/pexels-photo-31197870.jpeg", alt: "Modern steel framework under a clear sky" },
+    { src: "https://delfengineersindia.com/wp-content/uploads/2019/07/Marine-Bridge-SIgnature-Bridge-Connecting-between-Okha-Beyt-Dwarka-1.jpg", alt: "Okha Beyt Dwarka Signature Bridge, Gujarat, designed by DELF Engineers" },
+    { src: "https://delfengineersindia.com/wp-content/uploads/2019/07/Flyover-Bridge-at-Raiya-Road-crossing-on-150-Ft-Ring-Road-in-Rajkot-city-4.jpg", alt: "Four lane split flyover at Raiya Cross Road, Rajkot, by DELF Engineers" },
+    { src: "https://delfengineersindia.com/wp-content/uploads/2019/07/DJI_0165.jpg", alt: "Aerial view of the pedestrian bridge over Damanganga river, Daman, by DELF Engineers" },
   ];
 
   const SERVICES = [
@@ -442,7 +438,7 @@
       activeImage = (activeImage + 1) % GALLERY_IMAGES.length;
       renderGallery();
       scheduleAuto();
-    }, 7000);
+    }, 3000);
   }
 
   document.getElementById("prev-image").addEventListener("click", () => {
