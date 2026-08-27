@@ -68,6 +68,9 @@
   }
   body {
     margin: 0;
+    background-color: #ffffff;
+    background-image: radial-gradient(circle, #c7c9d1 1.4px, transparent 1.4px);
+    background-size: 26px 26px;
   }
   /* Scale the whole card up on larger screens so it doesn't look small
      on a desktop webpage, while keeping every proportion identical.
@@ -91,7 +94,7 @@
 </style>
 </head>
 
-<body class="flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-[#f4f4f7] to-[#e4e4ee] px-4 py-10">
+<body class="flex min-h-screen w-full items-center justify-center px-4 py-10">
 
   <div id="card-wrapper" class="w-full max-w-[393px]">
   <div
@@ -483,8 +486,8 @@
     const bounds = card.getBoundingClientRect();
     const horizontal = (event.clientX - bounds.left) / bounds.width - 0.5;
     const vertical = (event.clientY - bounds.top) / bounds.height - 0.5;
-    const x = vertical * -0.4;
-    const y = horizontal * 0.4;
+    const x = vertical * -4;
+    const y = horizontal * 4;
     card.style.transform = `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg)`;
   });
   card.addEventListener("pointerleave", () => {
