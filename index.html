@@ -135,7 +135,7 @@
         type="button"
         id="share-card"
         aria-label="Share this card"
-        class="absolute right-3 top-[205px] z-10 flex h-7 w-7 items-center justify-center rounded-full border-[1px] border-[#010043] bg-white/95 shadow-[0_2px_8px_0_rgba(0,0,0,0.18)] transition-all duration-200 hover:scale-105 hover:shadow-[0_4px_12px_0_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+        class="absolute right-1 top-[205px] z-10 flex h-7 w-7 items-center justify-center rounded-full border-[1px] border-[#010043] bg-white/95 shadow-[0_2px_8px_0_rgba(0,0,0,0.18)] transition-all duration-200 hover:scale-105 hover:shadow-[0_4px_12px_0_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="18" cy="5" r="3" stroke="#010043" stroke-width="1.8" />
@@ -635,15 +635,24 @@
       "END:VCARD",
     ].join("\r\n");
 
-    const blob = new Blob([vcard], { type: "text/vcard" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "Samir_Mehta_DELF.vcf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    const dataUri = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcard);
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Navigating directly to the vCard data URI lets the phone's OS
+      // recognize it and open the native "Add Contact" screen directly,
+      // instead of just saving a .vcf file to Downloads/Files.
+      window.location.href = dataUri;
+    } else {
+      // Desktop browsers have no native Contacts app integration, so
+      // fall back to a normal file download.
+      const link = document.createElement("a");
+      link.href = dataUri;
+      link.download = "Samir_Mehta_DELF.vcf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   });
 
   // ---------- Share card (native share sheet, with clipboard fallback) ----------
