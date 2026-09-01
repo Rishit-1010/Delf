@@ -104,7 +104,7 @@
     style="transform: perspective(1000px) rotateX(0deg) rotateY(0deg);"
   >
     <!-- Banner -->
-    <div class="relative h-[200px] w-full bg-[#ABABAB]">
+    <div class="group relative h-[200px] w-full bg-[#ABABAB]">
       <div class="absolute inset-0 overflow-hidden">
         <div id="gallery-track" class="flex h-full transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
           <!-- gallery images injected by JS -->
@@ -115,20 +115,20 @@
         type="button"
         id="prev-image"
         aria-label="Previous photo"
-        class="absolute left-2 top-[85px] z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full border-[0.5px] border-black bg-[#D9D9D9]/90 transition-all duration-200 hover:scale-105 hover:bg-white hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+        class="absolute left-2 top-[85px] z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#D9D9D9]/90 opacity-0 outline-none transition-all duration-200 hover:scale-105 hover:bg-white hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.14)] group-hover:opacity-100"
       >
         <svg width="9" height="18" viewBox="0 0 18 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.5 0L0 17.5L17.5 35" stroke="black" />
+          <path d="M17.5 0L0 17.5L17.5 35" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
       <button
         type="button"
         id="next-image"
         aria-label="Next photo"
-        class="absolute right-2 top-[85px] z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full border-[0.5px] border-black bg-[#D9D9D9]/90 transition-all duration-200 hover:scale-105 hover:bg-white hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+        class="absolute right-2 top-[85px] z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#D9D9D9]/90 opacity-0 outline-none transition-all duration-200 hover:scale-105 hover:bg-white hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.14)] group-hover:opacity-100"
       >
         <svg width="9" height="18" viewBox="0 0 18 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-4.76837e-07 0L17.5 17.5L-4.76837e-07 35" stroke="black" />
+          <path d="M-4.76837e-07 0L17.5 17.5L-4.76837e-07 35" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
       <button
@@ -209,7 +209,7 @@
           <span class="font-quicksand text-[11px] leading-[14px] text-black transition-colors duration-300 group-hover:text-white">Whatsapp</span>
         </a>
         <a
-          href="https://delfengineers.com"
+          href="https://delfengineersindia.com/"
           target="_blank"
           rel="noopener noreferrer"
           class="group flex h-[49px] w-full flex-col items-center justify-center gap-1 rounded-[15px] border border-brand bg-white shadow-[0_2px_5px_0_rgba(0,8,43,0.12)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-105 hover:bg-brand-dark hover:shadow-[0_4px_10px_0_rgba(0,8,43,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
@@ -284,6 +284,22 @@
             <p class="font-sans text-xs font-light tracking-[0.6px] text-black">LOCATION</p>
             <p class="truncate font-quicksand text-sm font-semibold text-black">Ambavadi, Ahmedabad, Gujarat</p>
           </div>
+          <button
+            type="button"
+            id="location-share"
+            class="-translate-x-1 flex shrink-0 items-center gap-1 rounded-md px-1.5 py-1 font-quicksand text-[10px] font-semibold text-brand transition-transform duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            aria-label="Share office location"
+            data-maps-url="https://www.google.com/maps/search/?api=1&query=DELF+Consulting+Engineers+India%2C+101+2nd+Floor+Shanay-I%2C+Opp+Shivalik+Plaza%2C+IIM-ATIRA+Road%2C+Ambawadi%2C+Ahmedabad+380015"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2" />
+              <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+              <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2" />
+              <path d="M8.6 10.5L15.4 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M8.6 13.5L15.4 17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span class="location-share-label">Share</span>
+          </button>
         </div>
         <div class="w-3/4 h-px self-center bg-[#b7b7b7]" aria-hidden="true"></div>
 
@@ -340,15 +356,15 @@
       </div>
 
       <!-- About Us -->
-      <div class="relative rounded-lg bg-brand-dark p-6 shadow-[0_2px_6px_0_rgba(0,0,0,0.08)]">
+      <div class="relative rounded-lg border border-[#e2e2e2] bg-white p-6 shadow-[0_2px_6px_0_rgba(0,0,0,0.08)]">
         <div class="flex items-start justify-between gap-2">
-          <h2 class="font-kavoon text-lg text-white">About Us</h2>
+          <h2 class="font-kavoon text-lg text-brand-dark">About Us</h2>
           <button
             type="button"
             id="about-toggle"
             aria-label="Expand about us"
             aria-pressed="false"
-            class="relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-white bg-transparent"
+            class="relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-dark"
           >
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round" />
@@ -358,7 +374,7 @@
         </div>
         <div id="about-panel" class="grid grid-rows-[0fr] opacity-0 transition-[grid-template-rows,opacity] duration-500 ease-in-out">
           <div class="min-h-0 overflow-hidden">
-            <div class="mt-4 flex flex-col gap-4 text-justify font-karla text-[14px] leading-[19px] text-white/90">
+            <div class="mt-4 flex flex-col gap-4 text-justify font-karla text-[14px] leading-[19px] text-brand-dark">
               <p>DELF Consulting Engineers (India) Pvt. Ltd. is a multi-disciplinary group of professionals providing complete Consultancy Services, based in Ahmedabad, Gujarat, India.</p>
               <p>It is an extension of DELF - South Africa as a Civil and Structural consultancy providing high quality, innovative and creative engineering services. Established in 2007 in India, with offering an integrated suite of services across all sectors such as, Residential buildings, Commercial buildings, Institutional building, Road infrastructures such as Highway, Bridges, Culverts, Industrial Structures including water &amp; waste water treatments plants, industrial process plants, warehouses, silos, chimneys and equipment foundations, etc. DELF (India) is committed in providing consulting services through a team of top-notch professionals and the use of State of the art techniques for Strategy, Feasibilities study, Planning, Designing, Costing, Project Management, Quality Control &amp; Quality Assurance and Pre bid services.</p>
               <p>Our expertise has carved a niche and extended our projects regionally as well as nationally. Through our vast experience and expertise, we ensure our clients are delivered solutions adhering to their needs which are compliant to statutory, local as well as international norms. DELF (India) has also endeavored to bring in innovation to its projects. To empower these work standards, we have setup state-of-the-art infrastructure. We have internationally acclaimed and accepted softwares for our core design and drafting department.</p>
@@ -368,15 +384,15 @@
       </div>
 
       <!-- Services -->
-      <div class="relative rounded-lg bg-brand-dark p-4 shadow-[0_2px_6px_0_rgba(0,0,0,0.08)]">
+      <div class="relative rounded-lg border border-[#e2e2e2] bg-white p-4 shadow-[0_2px_6px_0_rgba(0,0,0,0.08)]">
         <div class="flex items-center justify-between gap-2 px-2">
-          <h2 class="font-kavoon text-lg text-white">Services</h2>
+          <h2 class="font-kavoon text-lg text-brand-dark">Services</h2>
           <button
             type="button"
             id="services-toggle"
             aria-label="Expand services"
             aria-pressed="false"
-            class="relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-white bg-transparent"
+            class="relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-dark"
           >
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round" />
@@ -493,20 +509,47 @@
     }, 3000);
   }
 
-  document.getElementById("prev-image").addEventListener("click", () => {
+  document.getElementById("prev-image").addEventListener("click", (e) => {
     activeImage = activeImage === 0 ? GALLERY_IMAGES.length - 1 : activeImage - 1;
     renderGallery();
     scheduleAuto();
+    e.currentTarget.blur();
   });
 
-  document.getElementById("next-image").addEventListener("click", () => {
+  document.getElementById("next-image").addEventListener("click", (e) => {
     activeImage = (activeImage + 1) % GALLERY_IMAGES.length;
     renderGallery();
     scheduleAuto();
+    e.currentTarget.blur();
   });
 
   renderGallery();
   scheduleAuto();
+
+  // ---------- Swipe support (touch devices) ----------
+  const galleryTrack = document.getElementById("gallery-track");
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  galleryTrack.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  galleryTrack.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    const delta = touchEndX - touchStartX;
+    const swipeThreshold = 40; // minimum px distance to count as a swipe
+    if (Math.abs(delta) < swipeThreshold) return;
+    if (delta < 0) {
+      // swiped left -> next photo
+      activeImage = (activeImage + 1) % GALLERY_IMAGES.length;
+    } else {
+      // swiped right -> previous photo
+      activeImage = activeImage === 0 ? GALLERY_IMAGES.length - 1 : activeImage - 1;
+    }
+    renderGallery();
+    scheduleAuto();
+  }, { passive: true });
 
   // ---------- Card tilt (0.2deg max) ----------
   const card = document.getElementById("card");
@@ -619,7 +662,7 @@
     }
   });
 
-  // ---------- Save Contact (downloads a .vcf contact file) ----------
+  // ---------- Save Contact ----------
   document.getElementById("save-contact").addEventListener("click", () => {
     const vcard = [
       "BEGIN:VCARD",
@@ -631,27 +674,31 @@
       "TEL;TYPE=CELL:+919824839111",
       "EMAIL:samir@delfengineers.com",
       "ADR:;;Ambavadi, Ahmedabad;Gujarat;;;India",
-      "URL:https://delfengineers.com",
+      "URL:https://delfengineersindia.com/",
       "END:VCARD",
     ].join("\r\n");
 
-    const dataUri = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcard);
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+    const blobUrl = URL.createObjectURL(blob);
 
     if (isMobile) {
-      // Navigating directly to the vCard data URI lets the phone's OS
-      // recognize it and open the native "Add Contact" screen directly,
-      // instead of just saving a .vcf file to Downloads/Files.
-      window.location.href = dataUri;
+      // Navigating straight to the vCard blob (no download attribute) lets
+      // the phone's OS recognize the file type and hand it directly to the
+      // Contacts app's native "Add Contact" screen, pre-filled and ready
+      // to save in one tap.
+      window.location.href = blobUrl;
+      window.setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
     } else {
       // Desktop browsers have no native Contacts app integration, so
       // fall back to a normal file download.
       const link = document.createElement("a");
-      link.href = dataUri;
+      link.href = blobUrl;
       link.download = "Samir_Mehta_DELF.vcf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
     }
   });
 
@@ -676,6 +723,33 @@
         btn.setAttribute("aria-label", "Link copied");
         window.setTimeout(() => {
           btn.setAttribute("aria-label", "Share this card");
+        }, 1800);
+      }
+    }
+  });
+
+  // ---------- Share office map location ----------
+  document.getElementById("location-share").addEventListener("click", async () => {
+    const btn = document.getElementById("location-share");
+    const mapsUrl = btn.getAttribute("data-maps-url");
+    const shareData = {
+      title: "DELF Engineering Consultants — Office Location",
+      text: "DELF Engineering Consultants, Ambavadi, Ahmedabad, Gujarat",
+      url: mapsUrl,
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // user cancelled the share sheet — no action needed
+      }
+    } else {
+      const ok = await copyText(mapsUrl);
+      const label = btn.querySelector(".location-share-label");
+      if (ok && label) {
+        label.textContent = "Copied";
+        window.setTimeout(() => {
+          label.textContent = "Share";
         }, 1800);
       }
     }
