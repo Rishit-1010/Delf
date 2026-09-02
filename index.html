@@ -104,33 +104,35 @@
     style="transform: perspective(1000px) rotateX(0deg) rotateY(0deg);"
   >
     <!-- Banner -->
-    <div class="group relative h-[200px] w-full bg-[#ABABAB]">
-      <div class="absolute inset-0 overflow-hidden">
-        <div id="gallery-track" class="flex h-full transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
-          <!-- gallery images injected by JS -->
+    <div class="relative h-[200px] w-full bg-[#ABABAB]">
+      <div class="group absolute inset-0">
+        <div id="carousel-touch-area" class="absolute inset-0 overflow-hidden">
+          <div id="gallery-track" class="flex h-full transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
+            <!-- gallery images injected by JS -->
+          </div>
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-amber-400/25 via-emerald-400/10 to-blue-600/30 mix-blend-color"></div>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-amber-400/25 via-emerald-400/10 to-blue-600/30 mix-blend-color"></div>
+        <button
+          type="button"
+          id="prev-image"
+          aria-label="Previous photo"
+          class="absolute left-2 top-[85px] z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#D9D9D9]/90 opacity-0 outline-none transition-all duration-200 hover:scale-105 hover:bg-white hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.14)] group-hover:opacity-100"
+        >
+          <svg width="9" height="9" viewBox="0 0 18 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.5 0L0 17.5L17.5 35" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          id="next-image"
+          aria-label="Next photo"
+          class="absolute right-2 top-[85px] z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#D9D9D9]/90 opacity-0 outline-none transition-all duration-200 hover:scale-105 hover:bg-white hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.14)] group-hover:opacity-100"
+        >
+          <svg width="9" height="9" viewBox="0 0 18 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-4.76837e-07 0L17.5 17.5L-4.76837e-07 35" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
       </div>
-      <button
-        type="button"
-        id="prev-image"
-        aria-label="Previous photo"
-        class="absolute left-2 top-[85px] z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#D9D9D9]/90 opacity-0 outline-none transition-all duration-200 hover:scale-105 hover:bg-white hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.14)] group-hover:opacity-100"
-      >
-        <svg width="9" height="9" viewBox="0 0 18 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.5 0L0 17.5L17.5 35" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <button
-        type="button"
-        id="next-image"
-        aria-label="Next photo"
-        class="absolute right-2 top-[85px] z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#D9D9D9]/90 opacity-0 outline-none transition-all duration-200 hover:scale-105 hover:bg-white hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.14)] group-hover:opacity-100"
-      >
-        <svg width="9" height="9" viewBox="0 0 18 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-4.76837e-07 0L17.5 17.5L-4.76837e-07 35" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
       <button
         type="button"
         id="share-card"
@@ -527,15 +529,15 @@
   scheduleAuto();
 
   // ---------- Swipe support (touch devices) ----------
-  const galleryTrack = document.getElementById("gallery-track");
+  const carouselTouchArea = document.getElementById("carousel-touch-area");
   let touchStartX = 0;
   let touchEndX = 0;
 
-  galleryTrack.addEventListener("touchstart", (e) => {
+  carouselTouchArea.addEventListener("touchstart", (e) => {
     touchStartX = e.touches[0].clientX;
   }, { passive: true });
 
-  galleryTrack.addEventListener("touchend", (e) => {
+  carouselTouchArea.addEventListener("touchend", (e) => {
     touchEndX = e.changedTouches[0].clientX;
     const delta = touchEndX - touchStartX;
     const swipeThreshold = 40; // minimum px distance to count as a swipe
